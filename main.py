@@ -1,16 +1,17 @@
-# This is a sample Python script.
+histogram = {}
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+try:
+    file = open('input.txt', 'rt')
+    content = file.read().upper()
+    for ch in content:
+        if ch.isalpha():
+            if ch in histogram.keys():
+                histogram[ch] += 1
+            else:
+                histogram[ch] = 1
+    file.close()
+except Exception as e:
+    print(e)
 
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+for key in histogram.keys():
+    print(key, '->', histogram[key])
