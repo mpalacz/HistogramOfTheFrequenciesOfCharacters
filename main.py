@@ -1,8 +1,8 @@
 def HistogramToString(histogram):
-    text = ''
-    for key in histogram.keys():
-        text = text + key + ' -> ' + str(histogram[key]) + '\n'
-    return text
+    text = '' # output text
+    for key in histogram.keys(): # iterating through histogram
+        text = text + key + ' -> ' + str(histogram[key]) + '\n' # adding text to output
+    return text # returning output
 
 
 histogram = {}  # histogram dictionary
@@ -19,9 +19,9 @@ try:
     file.close()  # closing file
     # sorting histogram the highest amount of characters to lowest
     histogram = dict(sorted(histogram.items(), key=lambda i: i[1], reverse=True))
-    file = open(directory + '.hist', 'wt')
-    file.write(HistogramToString(histogram))
-    file.close()
+    file = open(directory + '.hist', 'wt') # opening new file
+    file.write(HistogramToString(histogram)) # writing histogram into the file
+    file.close() # closing file
 except Exception as e:
     print(e)
 
